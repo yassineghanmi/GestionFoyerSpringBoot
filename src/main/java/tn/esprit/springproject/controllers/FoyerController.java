@@ -31,8 +31,10 @@ public class FoyerController {
 
     }
     @DeleteMapping("/delatef/{idF}")
-public void deleateFoyer(@PathVariable long idF){
-
-        foyerServicelmp.deleatFoyer(idF);
-}
+    public void deleateFoyer(@PathVariable long idF){
+        foyerServicelmp.deleatFoyer(idF);}
+    @GetMapping("getbyname/{nameFoyer}")
+    public Foyer getFoyerbyname(@PathVariable String nameFoyer){
+        return foyerServicelmp.findFoyerByName(nameFoyer);
+    }
 }

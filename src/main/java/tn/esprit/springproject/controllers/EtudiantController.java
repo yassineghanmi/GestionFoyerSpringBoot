@@ -16,15 +16,15 @@ public class EtudiantController  {
     private EtudiantServiceImp etudiantServiceImp;
 
 
-        @PostMapping("/addEtudiant")
+    @PostMapping("/addEtudiant")
     public Etudiant addEtudiant(@RequestBody Etudiant E){
         return etudiantServiceImp.addEtudiant(E);
     }
-    @PutMapping("/updateEtudiant")
-    public Etudiant updateEtudiant(@RequestBody Etudiant E){
-        return  etudiantServiceImp.updateEtudiant(E);
+    @PutMapping("/updateEtudiant/{idE}")
+    public Etudiant updateEtudiant(@PathVariable long idE,@RequestBody Etudiant E){
+        return  etudiantServiceImp.updateEtudiant(idE,E);
     }
-        @GetMapping("/getallEtudiant")
+    @GetMapping("/getallEtudiant")
     public List<Etudiant> findAllEtudiant(){
         return etudiantServiceImp.findAllEtudiant();
     }

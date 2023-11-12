@@ -38,4 +38,10 @@ public class FoyerServicelmp implements IFoyer {
         foyerRepositorie.deleteById(idF);
 
     }
+
+    @Override
+    public Foyer findFoyerByName(String nomFoyer) {
+        return foyerRepositorie.findFoyerByNomFoyer(nomFoyer);
+    }
+
 }
