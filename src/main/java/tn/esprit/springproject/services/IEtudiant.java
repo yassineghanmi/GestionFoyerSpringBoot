@@ -11,5 +11,5 @@ public interface IEtudiant {
     public Etudiant updateEtudiant(long idE,Etudiant E);
     public List<Etudiant> findAllEtudiant();
     public Etudiant findEtudiant(long idE);
-    public void deleatEtudiant (long idE);
+    public void deleteEtudiant (long idE);
 }

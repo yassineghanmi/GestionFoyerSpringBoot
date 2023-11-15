@@ -1,22 +1,1 @@
-package tn.esprit.springproject.services;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import tn.esprit.springproject.entites.Bloc;
-import tn.esprit.springproject.entites.TypeChambre;
-import tn.esprit.springproject.repositories.BlocRepositorie;
-import tn.esprit.springproject.repositories.FoyerRepositorie;
-
-import java.util.Set;
-
-@Service
-public class BlocServiceImp implements IBloc {
-    @Autowired
-    private BlocRepositorie blocRepositorie;
-
-
-    @Override
-    public Set<Bloc> findByChamberTypeC(TypeChambre typeC) {
-        return blocRepositorie.findBlocsByChambresTypeC(typeC);
-    }
-}
+package tn.esprit.springproject.services;import lombok.AllArgsConstructor;import ma.glasnost.orika.MapperFacade;import org.springframework.beans.factory.annotation.Autowired;import org.springframework.stereotype.Service;import tn.esprit.springproject.entites.Bloc;import tn.esprit.springproject.entites.TypeChambre;import tn.esprit.springproject.repositories.BlocRepositorie;import tn.esprit.springproject.repositories.FoyerRepositorie;import java.util.List;import java.util.Optional;import java.util.Set;@Service@AllArgsConstructorpublic class BlocServiceImp implements IBloc {    private BlocRepositorie blocRepositorie;    @Override    public List<Bloc> getAllBloc() {        return blocRepositorie.findAll();    }    @Override    public Bloc getBlocById(long id) {        return blocRepositorie.findById(id).orElse(null);    }    @Override    public Bloc addBloc(Bloc bloc) {        return blocRepositorie.save(bloc);    }    @Override    public Bloc updateBloc(long id, Bloc newBloc) {        Bloc updatedBloc = getBlocById(id);        if(updatedBloc != null){            newBloc.setIdBloc(id);            return blocRepositorie.saveAndFlush(newBloc);        }        return null;    }    @Override    public void deleteBloc(long id) {        blocRepositorie.deleteById(id);    }    @Override    public Set<Bloc> findByChamberTypeC(TypeChambre typeC) {        return blocRepositorie.findBlocsByChambresTypeC(typeC);    }    @Override    public Bloc findBlocByChambreId(long id) {        return blocRepositorie.findBlocByChambresIdChambre(id);    }}

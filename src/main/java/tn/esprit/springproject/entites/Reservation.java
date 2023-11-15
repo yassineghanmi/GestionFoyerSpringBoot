@@ -1,5 +1,6 @@
 package tn.esprit.springproject.entites;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,11 +18,12 @@ import java.util.List;
 @ToString
 public class Reservation implements Serializable {
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String idReservation;
     @Temporal(TemporalType.DATE)
     private Date annerUniversitaire;
     private boolean estValide;
     @ManyToMany
+    @JsonIgnore
     private List <Etudiant> etudiants;
 }

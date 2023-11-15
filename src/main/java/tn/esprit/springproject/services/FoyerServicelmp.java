@@ -34,7 +34,7 @@ public class FoyerServicelmp implements IFoyer {
     }
 
     @Override
-    public void deleatFoyer(long idF) {
+    public void deleteFoyer(long idF) {
         foyerRepositorie.deleteById(idF);
 
     }
