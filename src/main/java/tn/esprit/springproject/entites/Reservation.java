@@ -18,7 +18,7 @@ import java.util.List;
 @ToString
 public class Reservation implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private String idReservation;
     @Temporal(TemporalType.DATE)
     private Date annerUniversitaire;
